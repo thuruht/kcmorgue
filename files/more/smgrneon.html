@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>kcmo.xyz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <style>
+        @font-face {
+            font-family: 'mpc';
+            src: url("mpc.woff2") format('woff2');
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'jurav';
+            src: url("jurav.woff2") format('woff2');
+            font-display: swap;
+        }
+
+        body {
+            font-family: jurav, verdana, arial, sans-serif;
+            background: radial-gradient(circle, #0d0d0d, #1f1f1f, #292929);
+            color: #dcdcdc;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 6vw;
+            color: #ff79c6;
+            text-shadow: 0 0 10px #ff79c6, 0 0 20px #ff79c6;
+        }
+
+        .h1t {
+            background: linear-gradient(128deg, #282a36, #44475a, #282a36);
+            padding: 0.4rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(40, 42, 54, 0.9);
+            width: 90vw;
+        }
+
+        h2, h3 {
+            color: #8be9fd;
+            text-shadow: 1px 1px 5px rgba(139, 233, 253, 0.7);
+        }
+
+        a {
+            color: #50fa7b;
+            text-decoration: none;
+            text-shadow: 0 0 5px #50fa7b;
+        }
+
+        a:hover {
+            color: #f1fa8c;
+            text-shadow: 0 0 10px #f1fa8c;
+        }
+
+        .btn, button {
+            font-family: mpc, monospace;
+            background: linear-gradient(148deg, rgba(68, 71, 90, 0.3), transparent, rgba(255, 121, 198, 0.3));
+            border: 1px solid #6272a4;
+            border-radius: 5px;
+            padding: 10px 20px;
+            color: #ff79c6;
+            text-shadow: 0 0 5px #ff79c6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px #6272a4;
+        }
+
+        .btn:hover, button:hover {
+            background: linear-gradient(148deg, rgba(255, 121, 198, 0.3), transparent, rgba(68, 71, 90, 0.3));
+            box-shadow: 0 0 15px #ff79c6;
+        }
+
+        section {
+            background: linear-gradient(128deg, #44475a, #282a36, #44475a);
+            padding: 1rem;
+            margin: 1rem;
+            border: 1px dotted #50fa7b;
+            border-radius: 12px;
+            color: #f8f8f2;
+            box-shadow: 0 0 10px rgba(68, 71, 90, 0.8);
+        }
+
+        footer {
+            background: #282a36;
+            color: #bd93f9;
+            text-align: center;
+            padding: 0.4rem;
+            border-radius: 10px;
+            margin: 1rem;
+            box-shadow: 0 0 10px #6272a4;
+        }
+    </style>
+</head>
+<body>
+    <div class="h1t content-container">
+        <h1>kcmo<small>.xyz</small></h1>
+        <h2>Some kind of web thing I guess.</h2>
+        <section>
+            <h3>Kansas City, Missouri, <span class="flip"><strike>USA</strike></span> <small>North America</small></h3>
+            <hr>
+            <h4 style="font-weight:400; font-size:1.6vw;">https://<strong>kcmo</strong>.<em>xyz</em></h4>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 kcmo.xyz</p>
+    </footer>
+    <script>
+        function toggleIframe(iframeId, iconId) {
+            var iframe = document.getElementById(iframeId);
+            var icon = document.getElementById(iconId);
+
+            if (iframe.style.display === "none" || iframe.style.display === "") {
+                iframe.style.display = "block";
+                icon.src = "undropp.svg";
+            } else {
+                iframe.style.display = "none";
+                icon.src = "dropp.svg";
+            }
+        }
+
+        function showAll() {
+            document.querySelectorAll("iframe").forEach(iframe => iframe.style.display = "block");
+        }
+
+        function hideAll() {
+            document.querySelectorAll("iframe").forEach(iframe => iframe.style.display = "none");
+        }
+    </script>
+</body>
+</html>

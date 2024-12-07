@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head><title>K C M O . x y z</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.5"> 
+<meta charset="utf-8" /><style>
+ 
+            
+    
+         @font-face {
+            font-family: 'mpc';
+            src: url("mpc.woff2") format('woff2');
+            font-display: swap;
+        }
+        
+        
+         @font-face {
+            font-family: 'jurav';
+            src: url("jurav.woff2") format('woff2');
+            font-display: swap;
+            }
+
+       hr
+             {
+border:0px; border-top:1px dotted #73FF667F; width:69%;
+}
+
+
+
+    .content-container {
+      display: flex;
+      justify-content: space-between;
+      width: 90vw;
+      /* margin: 0.4rem; */
+      padding: 0.4rem;
+    }
+    
+    .nav {
+     width:17%;
+      margin: 1rem; padding: 0.4rem;
+    }
+    .iframe-container {
+   margin: 1rem; padding: 0.4rem;
+    }
+    
+   img
+   
+   {
+   width:22px;
+   }
+
+section {
+
+    background: linear-gradient(128deg, #30034C, transparent, #30034C);
+   text-align:center;
+  padding: 0.4rem;
+  margin: 1rem;
+  border: 1px dotted #66FFF0C3;
+  border-radius: 16px;
+  color: #939F9F;
+    box-shadow: -1px -1px 2px rgba(0, 2, 12, 0.8), 1px 1px 2px rgba(12, 0, 2, 0.8);
+    display:block;
+ 
+}
+
+.div-accent {
+  background-color: #131C1Fff; 
+  padding: 0.4rem;
+    margin: 1rem;   text-align:center; 
+  border-radius: 12px;
+  box-shadow: -1px 1px 1px rgba(12, 12, 12, 0.6), 1px -1px 1px rgba(21, 0, 21, 0.6);
+  color: #69C6C0;
+}
+
+.border {
+  border: 1px outset #001f33;
+  border-radius: 12px;
+margin: 1rem; padding: 0.4rem;
+    background: linear-gradient(138deg, #30034C, #001f33, #30034C);
+}
+
+
+strong {
+  color: #33FFF0; font-weight:700;
+}
+
+
+
+
+  .flip {
+    -webkit-transform: rotate(-184deg);
+    -moz-transform: rotate(-184deg);
+    -o-transform: rotate(-184deg);
+    transform: rotate(-184deg);
+    display: inline-block;
+}
+ body {
+      font-family: jurav, verdana, arial, sans-serif;
+      background-color: #c4c4c4;
+      color: #cce7ff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 90vh;
+      min-width:768px;
+      max-width:98vw;
+      margin:0 auto;
+      text-align:center;
+      padding: 0.4rem;
+      margin: 1rem;
+      font-size:0.75rem;
+      vertical-align: middle;
+      font-weight: 400;
+      font-family: jurav, verdana, arial, sans-serif;
+      }
+      
+       
+
+    h1 {
+      font-size: 5rem;
+      color: #00e6ff;
+      text-shadow: 6px -3px 24px #00e6ff, -3px 6px 32px #e600ff;
+      margin: 1rem 0;
+    } 
+ 
+
+    .h1t {
+      background: linear-gradient(128deg, #000000, #30034C, #000000);
+      padding: 0.4rem;
+      border-radius: 12px;
+      /* box-shadow: 3px 3px 3px rgba(0, 51, 102, 0.9); */
+      width: 90vw;
+  
+ border: none;}
+    h2, h3 {
+      color: #F9C3FC;
+      text-shadow: 1px 1px 5px rgba(255, 0, 255, 0.7);
+    }
+
+    .btn, button { 
+      display: inline-block;
+  border: none;
+      font-family: mpc, monospace;
+      background: linear-gradient(148deg, rgba(200, 172, 200, 0.3), transparent, rgba(162, 200, 182, 0.3));
+      border: 1px solid #004466;
+      border-radius: 5px;
+      padding: 10px 20px;
+      color: #00e6ff;
+      text-shadow: 0 0 5px #00e6ff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px #004466;
+    }
+
+    .btn:hover, button:hover {
+      background: linear-gradient(148deg, rgba(162, 200, 182, 0.3), transparent, rgba(200, 172, 200, 0.3));
+      box-shadow: 0 0 15px #00e6ff;
+    }
+
+    .iframe-container {
+      width: 100%;
+      background: rgba(0, 51, 102, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 1px rgba(0, 51, 102, 0.4);
+      margin: 1rem;
+      padding:0.4rem;
+      overflow: hidden;
+    }
+
+
+
+
+    
+    a {
+      color: #00e6ff;
+      text-decoration: none;
+      text-shadow: 0 0 10px #00e6ff;
+    }
+
+    a:hover {
+      color: #ffffff;89
+      text-shadow: 0 0 15px #ffffff;
+    }
+    
+    iframe {
+ 
+      display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0; width: 100%; /* Ensure iframe spans the container width */
+  border: none;
+}
+
+iframe.visible {
+  display: block; /* Ensure it appears when toggled */ width: 100%; /* Ensure iframe spans the container width */
+  border: none;
+      width: 100%;
+      height: 100%;
+      background: #00000000;
+  max-height: 100vh; /* Adjust based on content height */
+  opacity: 1;
+}
+
+iframe.hidden { display: none; /* Ensure it's hidden when toggled */
+
+  max-height: 0;
+  opacity: 0;
+
+ width: 100%; /* Ensure iframe spans the container width */
+  border: none;
+
+         </style>
+</head> 
+  <body><div style="text-align:center;"><div class="h1t content-container" style="display: block; width:90vw;">
+<h1 style ="font-size:5rem; font-weight:469; letter-spacing:0.6rem;">kcmo<small>.xyz</small></h1><h2 style="font-size:0.8rem; letter-spacing:0.1rem; font-weight:350;">a super-local, un-corporate, anti-fascist, neighborhood network</h2><h3 style="font-size:0.8rem; letter-spacing:0.5rem; font-weight:550;">[SLUCAFNN? SUANN?]</h3>we could have a cool bird logo...<section>&nbsp;&nbsp; | &nbsp;&nbsp;<h3 style="font-size:0.75rem; letter-spacing:0.3rem; font-weight:600; display: inline;">Kansas City, MO, <span class="flip"><strike>USA</strike></span></h3>&nbsp;&nbsp; | &nbsp;&nbsp;<h4 style="font-weight:350; display: inline; font-size:0.75rem; letter-spacing:0.2rem"><strong>kcmo</strong>.<small><em>xyz</em></small></h4>&nbsp;&nbsp; | &nbsp;&nbsp;</section>
+
+
+
+<div id="nfv" style="display:inline-block;">
+
+
+ <script>
+ function thaDrop1() {
+  toggleIframe("xE1", "toggleIcon1");
+}
+
+function thaDrop2() {
+  toggleIframe("xE2", "toggleIcon2");
+}
+
+function thaDrop3() {
+  toggleIframe("xE3", "toggleIcon3");
+}
+
+function thaDrop4() {
+  toggleIframe("xE4", "toggleIcon4");
+}
+
+// Helper function to toggle iframe visibility
+function toggleIframe(iframeId, iconId) {
+  const iframe = document.getElementById(iframeId);
+  const icon = document.getElementById(iconId);
+
+  if (iframe.classList.contains("hidden")) {
+    iframe.classList.remove("hidden");
+    iframe.classList.add("visible");
+    icon.src = "undropp.png";
+    console.log(`${iframeId} is now visible.`);
+  } else {
+    iframe.classList.remove("visible");
+    iframe.classList.add("hidden");
+    icon.src = "dropp.png";
+    console.log(`${iframeId} is now hidden.`);
+  }
+}
+
+
+// Show all iframes
+function showAll() {
+  document.querySelectorAll("iframe").forEach((iframe) => {
+    iframe.classList.remove("hidden");
+    iframe.classList.add("visible");
+  });
+
+  document.querySelectorAll("[id^='toggleIcon']").forEach((icon) => {
+    icon.src = "undropp.png"; // Ensure the "open" icon is displayed
+  });
+}
+
+function hideAll() {
+  document.querySelectorAll("iframe").forEach((iframe) => {
+    iframe.classList.remove("visible");
+    iframe.classList.add("hidden");
+  });
+
+  document.querySelectorAll("[id^='toggleIcon']").forEach((icon) => {
+    icon.src = "dropp.png"; // Ensure the "closed" icon is displayed
+  });
+}
+
+
+
+// On page load, make the first iframe visible
+document.addEventListener("DOMContentLoaded", () => {
+  const firstIframe = document.getElementById("xE1");
+  const firstIcon = document.getElementById("toggleIcon1");
+
+  if (firstIframe) {
+    firstIframe.classList.add("visible");
+  }
+  if (firstIcon) {
+    firstIcon.src = "undropp.png";
+  }
+});
+
+  </script>
+  
+  <div class="content-container">
+  
+    <section class="nav container">
+  <hr>
+  <hr>
+   <span style="font-weight:700; color: #75fb4c; text-shadow:1px -1px 1px #606060;">show</span>
+ / <span style="font-weight:700; color: #8c1af6; text-shadow:-1px 1px 1px #6F6F6F;">hide</span> :
+  <hr><hr>
+  <button class="btn" style="font-weight:700; color: #75fb4c; text-shadow:1px -1px 1px #606060;" onclick="showAll()">show<img src="dropp.png" alt="+"><span style="color:#00FFFF;"> ALL</span></button><hr><button class="btn" style="font-weight:700; color: #8c1af6; text-shadow:-1px 1px 1px #6F6F6F;" onclick="hideAll()"><span style="color:#00FFFF;">ALL </span><img src="undropp.png" alt="-">hide</button>
+   <hr>
+  <hr>
+  <h3 style="display:inline-block;"><strong>T</strong>hing :</h3><br>
+  <button class="btn" style="font-weight:700; color: #75fb4c; text-shadow:1px -1px 1px #606060;" onclick="thaDrop1()"><span style="font-weight:700; color: #75fb4c; text-shadow:1px 1px 1px #6F6F6F;">show</span><img id="toggleIcon1" src="dropp.png" alt="Show/Hide"><span style="font-weight:700; color: #8c1af6; text-shadow:3px -3px 3px #606060;">hide</span>
+  </button><hr>
+<hr>
+  <h3 style="display:inline-block;"><strong>T</strong>hing :</h3><br>
+  <button class="btn" style="font-weight:700; color: #75fb4c; text-shadow:1px -1px 1px #606060;" onclick="thaDrop2()"><span style="font-weight:700; color: #75fb4c; text-shadow:3px 3px 3px #6F6F6F;">show</span><img id="toggleIcon2" src="dropp.png" alt="Show/Hide"><span style="font-weight:700; color: #8c1af6; text-shadow:3px -3px 3px #606060;">hide</span>
+  </button><hr><hr>
+  <h3 style="display:inline-block;"><strong>T</strong>hing :</h3><br>
+  <button class="btn" style="font-weight:700; color: #75fb4c; text-shadow:1px -1px 1px #606060;" onclick="thaDrop3()"><span style="font-weight:700; color: #75fb4c; text-shadow:3px 3px 3px #6F6F6F;">show</span><img id="toggleIcon3" src="dropp.png" alt="Show/Hide"><span style="font-weight:700; color: #8c1af6; text-shadow:3px -3px 3px #606060;">hide</span>
+  </button><hr>
+  <hr>
+  <h3 style="display:inline-block;"><strong>T</strong>hing :</h3><br>
+  <button class="btn" style="font-weight:700; color: #75fb4c; text-shadow:1px -1px 1px #606060;" onclick="thaDrop4()"><span style="font-weight:700; color: #75fb4c; text-shadow:3px 3px 3px #6F6F6F;">show</span><img id="toggleIcon4" src="dropp.png" alt="Show/Hide"><span style="font-weight:700; color: #8c1af6; text-shadow:3px -3px 3px #606060;">hide</span>
+  </button><hr><hr>
+  </section>
+<div class="div-accent iframe-container" id="iframe-container">
+<iframe id="xE1"
+  src="1.html" 
+  style="border: none; width: 100%; height: 100%; border-width:0;" 
+  frameborder="0">Your browser does not support iframes?!?!? :(</iframe>
+<iframe id="xE2"
+  src="2.html" 
+  style="border: none; width: 100%; height: 100%; border-width:0;" 
+  frameborder="0">Your browser does not support iframes?!?!? :(</iframe>
+  <iframe id="xE3"
+  src="3.html" 
+  style="border: none; width: 100%; height: 100%; border-width:0;" 
+  frameborder="0">Your browser does not support iframes?!?!? :(</iframe>
+   <iframe id="xE4"
+  src="4.html" 
+  style="border: none; width: 100%; height:100%; border-width:0;" 
+  frameborder="0">Your browser does not support iframes?!?!? :(</iframe>
+</div></div>
+</div>
+<section>| <a href="">Site Map</a> | <a>Social Media</a> | <a>Community & Extra</a> | <a>Site Info</a> |</section></div>
+ </body>
+</html>
