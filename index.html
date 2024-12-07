@@ -82,18 +82,30 @@
     <p>&copy; 2024 KCmorgue.org. All Rights Reserved.</p>
   </footer>
 
-  <script>
-    // Initialize Leaflet Map
-    const map = L.map('map').setView([39.0997, -94.5786], 10); // Center Kansas City
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
+<script>
+  const map = L.map('map').setView([39.0997, -94.5786], 10); // Kansas City
 
-    // Add Example Marker
-    const marker = L.marker([39.0997, -94.5786]).addTo(map)
-      .bindPopup('<b>Example Incident</b><br>Location: Kansas City')
-      .openPopup();
-  </script>
+  // Add OpenStreetMap Tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Fetch Incidents Data
+  async function loadIncidents() {
+    const response = await fetch('/api'); // Fetch from your Cloudflare API
+    const incidents = await response.json();
+
+    // Example loop to add markers (adjust based on actual API data structure)
+    incidents.forEach(incident => {
+      L.marker([39.0997, -94.5786]) // Static Lat/Lon for testing
+        .addTo(map)
+        .bindPopup(`<b>${incident.title}</b><br>${incident.body}`);
+    });
+  }
+
+  loadIncidents();
+</script>
+
 </body>
 
 </html>
