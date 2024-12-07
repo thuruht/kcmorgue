@@ -20,7 +20,7 @@
   <!-- Header -->
   <header class="site-header">
     <div class="logo">
-      <img src="./images/morge.png" alt="KCmorgue Logo">
+      <img src="./images/morge.png" style="width:256px; height:auto;" alt="KCmorgue Logo">
     </div>
     <nav class="main-nav">
       <ul>
@@ -91,19 +91,32 @@
   }).addTo(map);
 
   // Fetch Incidents Data
-  async function loadIncidents() {
-    const response = await fetch('/api'); // Fetch from your Cloudflare API
-    const incidents = await response.json();
+async function loadIncidents() {
+  const response = await fetch('/api'); // Fetch from your Worker API
+  const { data } = await response.json(); // ACLED data is in `data`
 
-    // Example loop to add markers (adjust based on actual API data structure)
-    incidents.forEach(incident => {
-      L.marker([39.0997, -94.5786]) // Static Lat/Lon for testing
-        .addTo(map)
-        .bindPopup(`<b>${incident.title}</b><br>${incident.body}`);
-    });
-  }
+  data.forEach(incident => {
+    const { latitude, longitude, event_date, event_type, actor1, actor2, notes, interaction } = incident;
 
-  loadIncidents();
+    // Skip if geolocation is missing
+    if (!latitude || !longitude) return;
+
+    // Add a marker for the incident
+    L.marker([latitude, longitude])
+      .addTo(map)
+      .bindPopup(`
+        <b>${event_type}</b><br>
+        Date: ${event_date}<br>
+        Actors: ${actor1} vs ${actor2}<br>
+        Interaction Code: ${interaction}<br>
+        Notes: ${notes}
+      `);
+  });
+}
+
+loadIncidents();
+
+
 </script>
 
 </body>

@@ -1,21 +1,47 @@
-const INCIDENTS_CACHE_KEY = "incidents_cache"; // Cache key
-const API_URL = "https://jsonplaceholder.typicode.com/posts"; // Placeholder API for testing
-const CACHE_TTL = 3600; // Cache for 1 hour (3600 seconds)
+const INCIDENTS_CACHE_KEY = "incidents_cache";
+const API_URL = "https://api.acleddata.com/acled/read";
+const API_TOKEN = "leKBHbAkbmU26yCP0shv"; // Replace with your actual API key
+const EMAIL = "jojo@ntapkc.com"; // Replace with your registered email
+const CACHE_TTL = 3600; // Cache for 1 hour
 
 export async function onRequest(context) {
-  // Attempt to get cached data
-  const cache = context.env.INCIDENTS; // Ensure you add this binding in the Cloudflare dashboard
-  let cachedData = await cache.get(INCIDENTS_CACHE_KEY);
+  const cache = context.env.INCIDENTS;
+  const cachedData = await cache.get(INCIDENTS_CACHE_KEY);
 
+  // Serve from cache if available
   if (cachedData) {
     return new Response(cachedData, { headers: { "Content-Type": "application/json" } });
   }
 
-  // Fetch live data if not cached
-  const response = await fetch(API_URL);
+  // Calculate date range (last 3 years to today)
+  const endDate = new Date().toISOString().split('T')[0];
+  const startDate = new Date();
+  startDate.setFullYear(startDate.getFullYear() - 3);
+  const startDateStr = startDate.toISOString().split('T')[0];
+
+  // Construct API Query
+  const query = new URLSearchParams({
+    key: API_TOKEN,
+    email: EMAIL,
+    country: "United States",
+    admin1: "Missouri,Kansas",
+    admin2: "Kansas City",
+    event_date: `${startDateStr},${endDate}`,
+    event_type: "Protests,Violence against civilians",
+    interaction: "1,2,3,4,5,6,7,8", // Include all interaction codes
+    limit: "100"
+  });
+
+  // Fetch data from ACLED API
+  const response = await fetch(`${API_URL}?${query.toString()}`);
+  
+  if (!response.ok) {
+    return new Response("Error fetching data from ACLED.", { status: response.status });
+  }
+
   const data = await response.json();
 
-  // Cache the data
+  // Cache data for future use
   await cache.put(INCIDENTS_CACHE_KEY, JSON.stringify(data), { expirationTtl: CACHE_TTL });
 
   return new Response(JSON.stringify(data), { headers: { "Content-Type": "application/json" } });
