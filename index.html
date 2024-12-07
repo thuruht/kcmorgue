@@ -1,14 +1,99 @@
-<html>     
-    <head>
-        <title>KCmorgue.org</title>
-        <style>body {
-    background: linear-gradient(to bottom, #30003F, #030303, #3F0030); width: 100vw; height: 100vh;
-    border: 1px dotted #00FCCF33; text-align: center; align-items: center; margin: 0 auto; color: #C30FF0;
-}
-</style>
-    </head>
-    <body><div style="vertical-align:middle; text-align:center;">
-        <img src="./mourgee.png" alt="Morgue Freezer Door - KCmorgue.org" style="width:600px; height: auto; vertical-align: middle;">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KCmorgue.org</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- Leaflet JS and CSS -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="logo">
+      <img src="./images/morge.png" alt="KCmorgue Logo">
     </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#home"><span class="material-icons">home</span> Home</a></li>
+        <li><a href="#mission"><span class="material-icons">flag</span> Mission</a></li>
+        <li><a href="#data-map"><span class="material-icons">map</span> Data Map</a></li>
+        <li><a href="#submit"><span class="material-icons">edit</span> Submit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <!-- Mission Statement -->
+    <section id="mission" class="section mission">
+      <h1>Mission Statement</h1>
+      <p>KCmorgue.org visualizes and propagates data on institutional violence and injustices...</p>
+    </section>
+
+    <!-- Data Map -->
+    <section id="data-map" class="section data-map">
+      <h2>Data Map</h2>
+      <div id="map" style="height: 500px;"></div>
+    </section>
+
+    <!-- Submission Form -->
+<section id="submit" class="section submit">
+  <h2>Submit an Incident</h2>
+  <form class="submission-form" id="incidentForm">
+    <label for="title">Incident Title:</label>
+    <input type="text" id="title" name="title" placeholder="e.g., Police Misconduct" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4" placeholder="Describe the incident in detail" required></textarea>
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" placeholder="e.g., Kansas City, MO" required>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="evidence">Corroborative Evidence (Links):</label>
+    <textarea id="evidence" name="evidence" rows="2" placeholder="e.g., News articles, videos, social media links"></textarea>
+
+    <button type="submit"><span class="material-icons">send</span> Submit</button>
+  </form>
+</section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Connect with us:</p>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank"><span class="material-icons">facebook</span></a>
+      <a href="https://twitter.com" target="_blank"><span class="material-icons">twitter</span></a>
+      <a href="https://instagram.com" target="_blank"><span class="material-icons">instagram</span></a>
+    </div>
+    <p>&copy; 2024 KCmorgue.org. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Initialize Leaflet Map
+    const map = L.map('map').setView([39.0997, -94.5786], 10); // Center Kansas City
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Add Example Marker
+    const marker = L.marker([39.0997, -94.5786]).addTo(map)
+      .bindPopup('<b>Example Incident</b><br>Location: Kansas City')
+      .openPopup();
+  </script>
 </body>
+
 </html>
