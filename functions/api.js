@@ -1,7 +1,7 @@
 const INCIDENTS_CACHE_KEY = "incidents_cache";
 const API_URL = "https://api.acleddata.com/acled/read";
 const API_TOKEN = "leKBHbAkbmU26yCP0shv"; // Replace with actual API key
-const EMAIL = "n00jo@ntapkc.com"; // Replace with your registered email
+const EMAIL = "jojo@ntapkc.com"; // Replace with your registered email
 const CACHE_TTL = 3600; // Cache for 1 hour
 
 export async function onRequest(context) {
