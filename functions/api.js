@@ -13,24 +13,24 @@ export async function onRequest(context) {
     return new Response(cachedData, { headers: { "Content-Type": "application/json" } });
   }
 
-  // Calculate date range (last 3 years to today)
-  const endDate = new Date().toISOString().split('T')[0]; // Today
+  // Calculate date range (last x years to today)
+  const endDate = new Date().toISOString().split('T')[0]; // Today's date
   const startDate = new Date();
-  startDate.setFullYear(startDate.getFullYear() - 3); // 3 years ago
+  startDate.setFullYear(startDate.getFullYear() - 10); // 10 years ago
   const startDateStr = startDate.toISOString().split('T')[0];
 
-  // Construct API Query with start and end date
+  // Construct API Query with correct parameters
   const query = new URLSearchParams({
     key: API_TOKEN,
     email: EMAIL,
+    event_date_start: startDateStr,
+    event_date_end: endDate,
     country: "United States",
     admin1: "Missouri,Kansas",
     admin2: "Kansas City",
-    event_date_start: startDateStr,
-    event_date_end: endDate,
     event_type: "Protests,Violence against civilians",
     interaction: "1,2,3,4,5,6,7,8",
-    limit: "100"
+    limit: "500"
   });
 
   // Fetch data from ACLED API
@@ -47,5 +47,3 @@ export async function onRequest(context) {
 
   return new Response(JSON.stringify(data), { headers: { "Content-Type": "application/json" } });
 }
-
-
