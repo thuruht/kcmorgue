@@ -14,21 +14,22 @@ export async function onRequest(context) {
   }
 
   // Calculate date range (last 3 years to today)
-  const endDate = new Date().toISOString().split('T')[0];
+  const endDate = new Date().toISOString().split('T')[0]; // Today
   const startDate = new Date();
-  startDate.setFullYear(startDate.getFullYear() - 3);
+  startDate.setFullYear(startDate.getFullYear() - 3); // 3 years ago
   const startDateStr = startDate.toISOString().split('T')[0];
 
-  // Construct API Query
+  // Construct API Query with start and end date
   const query = new URLSearchParams({
     key: API_TOKEN,
     email: EMAIL,
     country: "United States",
     admin1: "Missouri,Kansas",
     admin2: "Kansas City",
-    event_date: `${startDateStr},${endDate}`,
+    event_date_start: startDateStr,
+    event_date_end: endDate,
     event_type: "Protests,Violence against civilians",
-    interaction: "1,2,3,4,5,6,7,8", // Include all interaction codes
+    interaction: "1,2,3,4,5,6,7,8",
     limit: "100"
   });
 
@@ -36,7 +37,7 @@ export async function onRequest(context) {
   const response = await fetch(`${API_URL}?${query.toString()}`);
   
   if (!response.ok) {
-    return new Response("Error fetching data from ACLED.", { status: response.status });
+    return new Response(`Error fetching data from ACLED: ${response.statusText}`, { status: response.status });
   }
 
   const data = await response.json();
@@ -46,3 +47,5 @@ export async function onRequest(context) {
 
   return new Response(JSON.stringify(data), { headers: { "Content-Type": "application/json" } });
 }
+
+
