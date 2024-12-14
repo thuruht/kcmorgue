@@ -3,67 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KCMorgue.org</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/gsap.min.js"></script>
-    <script src="./js/w3.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <title>Interactive Map</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="js/w3.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <!-- OpenLayers Styles and Script -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol/ol.css">
+    <script src="https://cdn.jsdelivr.net/npm/ol/dist/ol.js"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="header-logo">
-            <img src="./images/morge.png" alt="Morge Logo">
-        </div>
-        <nav class="horizontal-nav">
-            <ul>
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#data-map">Data Map</a></li>
-                <li><a href="#submit">Submit</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="main">
-        <section id="mission" class="section mission">
-            <h1>Mission Statement</h1>
-            <p>KCMorgue.org exists to uncover and highlight the pervasive and often hidden injustices that plague our community. 
-            By leveraging data and personal stories, we aim to provide a stark, unfiltered view of systemic failures, empowering individuals to demand accountability.</p>
-        </section>
-        <section id="data-map" class="section data-map">
-            <h2>Data Map</h2>
-            <div id="map"></div>
-        </section>
-        <section id="submit" class="section submit">
-            <h2>Submit an Incident</h2>
-            <form class="submission-form" id="incidentForm">
-                <label for="title">Incident Title:</label>
-                <input type="text" id="title" name="title" required>
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" rows="4" required></textarea>
-                <label for="location">Location:</label>
-                <input type="text" id="location" name="location" required>
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" required>
-                <label for="evidence">Evidence Links:</label>
-                <textarea id="evidence" name="evidence" rows="2"></textarea>
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>No copyright or licensing, except this: only individuals or community organizations may re-use or re-print my content and work.</p>
-        <p>Any for-profit or corporate use is against my express wishes. All data sources are subject to their own policies.</p>
-        <p>Contact us at <a href="mailto:coroner@kcmorgue.org">coroner@kcmorgue.org</a>.</p>
-    </footer>
-    <script>
-        // Leaflet.js map initialization
-        const map = L.map('map').setView([39.0997, -94.5786], 10);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
-        // Example marker for data map
-        L.marker([39.0997, -94.5786]).addTo(map)
-            .bindPopup('<b>Sample Incident</b><br>Location: Kansas City, MO.<br>Date: 2024-01-01.');
-    </script>
+    <h1>Interactive Map for KS & MO</h1>
+    <div class="dataset-selector">
+        <label for="datasets">Choose Dataset:</label>
+        <select id="datasets">
+            <option value="./data/mppolcvolMOKS.csv">KS & MO Data</option>
+        </select>
+    </div>
+    <div id="map" class="map-container"></div>
+    <script src="js/script.js"></script>
 </body>
 </html>
