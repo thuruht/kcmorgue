@@ -2,24 +2,211 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Map</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <script src="js/w3.js"></script>
-    <script src="js/gsap.min.js"></script>
-    <!-- OpenLayers Styles and Script -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol/ol.css">
-    <script src="https://cdn.jsdelivr.net/npm/ol/dist/ol.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Dark Theme Elegant Page</title>
+    <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: #121212;
+            color: #e4e4e4;
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #6bbaba;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #6bbaba; /* Cool light teal for H2 */
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #6bbaba;
+        }
+
+        p {
+            font-size: 1.125rem;
+            color: #b0b0b0;
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: #d4a373;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #a8764e;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        header, nav, footer {
+            padding: 20px;
+            margin-bottom: 20px;
+            background: #9C27B0; 
+            color: #e4e4e4;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+
+        .header img {
+            height: 96px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav a {
+            font-family: 'Poppins', sans-serif;
+            color: #e4e4e4;
+            font-size: 1rem;
+        }
+
+        .nav a:hover {
+            color: #d4a373;
+        }
+
+        .main {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .column {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .column:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .column.narrow {
+            flex: 0.5;
+        }
+
+        .column.medium {
+            flex: 0.75;
+        }
+
+        .column.wide {
+            flex: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .footer small {
+            color: #b0b0b0;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .main {
+                flex-direction: column;
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav a {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Interactive Map for KS & MO</h1>
-    <div class="dataset-selector">
-        <label for="datasets">Choose Dataset:</label>
-        <select id="datasets">
-            <option value="./data/mppolcvolMOKS.csv">KS & MO Data</option>
-        </select>
-    </div>
-    <div id="map" class="map-container"></div>
-    <script src="js/script.js"></script>
+    <!-- Header -->
+    <header class="header">
+        <img src="./images/mogoo.png" alt="Logo">
+        <nav class="nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="column narrow"><h3>THE POLICE ARE MURDERERS</h3> </div>
+        <div class="column wide"><img src="./images/doeur.png" alt=" "></div>
+        <div class="column medium"><section class="morgue-definition">
+    <h2>Morgue</h2>
+    <p>
+        <em>Noun</em> <small>(ˈmȯrg)</small>
+    </p>
+    <ol>
+        <li>
+            A place where the bodies of dead persons are kept temporarily pending identification or release for burial or autopsy.
+        </li>
+        <li>
+            A collection of reference works and files used as a resource, particularly in a newspaper or news service office.
+        </li>
+    </ol>
+    <footer class="attribution">
+        <small>
+            Source: <a href="https://www.merriam-webster.com" target="_blank" rel="noopener noreferrer">Merriam-Webster</a>
+        </small>
+    </footer>
+</section>
+</div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <small>All data is subject to the policy of the data supplier. None of my original content or design is copyrighted, use it if you like.</small>
+    </footer>
 </body>
 </html>
