@@ -2,25 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
-    <title>Dark Theme Elegant Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCmorgue.org</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Import Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;600;700&display=swap');
-
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Body Styling */
         body {
             font-family: 'Lora', serif;
-            background-color: #121212;
+            font-size: 0.9rem;
+            background: linear-gradient(to bottom, #20002F, #030303, #2F0020);
+            background-attachment: fixed;
+            background-size: cover;
             color: #e4e4e4;
             line-height: 1.8;
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            align-items: center;
+            margin: 0 auto;
+            border: 1px dotted #00FCCF33;
+            border-radius: 12px;
         }
 
+        /* Typography */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
             line-height: 1.4;
@@ -28,22 +40,14 @@
         }
 
         h1 {
-            font-size: 2.5rem;
             color: #6bbaba;
         }
 
-        h2 {
-            font-size: 2rem;
-            color: #6bbaba; /* Cool light teal for H2 */
-        }
-
-        h3 {
-            font-size: 1.5rem;
+        h2, h3 {
             color: #6bbaba;
         }
 
         p {
-            font-size: 1.125rem;
             color: #b0b0b0;
             margin-bottom: 15px;
         }
@@ -71,42 +75,48 @@
         img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 12px;
         }
 
-        header, nav, footer {
-            padding: 20px;
-            margin-bottom: 20px;
-            background: #9C27B0; 
-            color: #e4e4e4;
-        }
-
+        /* Header */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            
+            width: 100%;
+            background: #66666633;
+            padding: 20px;
+            border-radius: 0;
         }
 
         .header img {
             height: 96px;
+            width: auto;
         }
 
+        /* Navigation */
         .nav {
             display: flex;
             gap: 15px;
+            align-items: center;
         }
 
         .nav a {
             font-family: 'Poppins', sans-serif;
             color: #e4e4e4;
-            font-size: 1rem;
+            padding: 5px 15px;
+            border-radius: 8px;
+            background: #ffffff0d;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
         }
 
         .nav a:hover {
+            background-color: #d4a37333;
             color: #d4a373;
+            transform: scale(1.05);
         }
 
+        /* Main Content */
         .main {
             display: flex;
             gap: 20px;
@@ -116,21 +126,18 @@
         }
 
         .column {
-            background: #1e1e1e;
+            background: #66666633;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
             flex: 1;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .column:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-        }
-
         .column.narrow {
-            flex: 0.5;
+            flex: none;
+            width: 20%;
+            min-height: 100%;
         }
 
         .column.medium {
@@ -141,28 +148,84 @@
             flex: 1.5;
         }
 
+        .column img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .column:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Footer */
         .footer {
+            width: 100%;
+            background: #66666633;
+            padding: 20px;
             text-align: center;
-            font-size: 1rem;
+            border-radius: 0;
         }
 
         .footer small {
             color: #b0b0b0;
-            font-size: 0.875rem;
         }
 
+        /* Dynamic iframe */
+        .dynamic-iframe {
+            border: none;
+            width: 100%;
+            height: auto;
+            background: #66666633;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .dynamic-iframe:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .main.with-iframe {
+            display: flex;
+        }
+
+        .main.with-iframe .column.narrow {
+            flex: none;
+        }
+
+        .main.with-iframe .column.wide,
+        .main.with-iframe .column.medium {
+            display: none;
+        }
+
+        .main.with-iframe .dynamic-iframe {
+            flex: 1.5;
+            display: block;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .main {
                 flex-direction: column;
             }
 
-            .nav {
+            .header {
                 flex-direction: column;
-                align-items: center;
+                text-align: center;
             }
 
-            .nav a {
-                font-size: 1.125rem;
+            .nav {
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .header img {
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -170,43 +233,76 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <img src="./images/mogoo.png" alt="Logo">
+        <a href="home" id="home-link"> <img src="./images/mogoo.png" alt="Logo"> </a>
         <nav class="nav">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="home" id="home-link">Home</a>
+            <a href="./about.html" data-target="iframe">About</a>
+            <a href="./contact.html" data-target="iframe">Contact</a>
         </nav>
     </header>
 
     <!-- Main Content -->
     <main class="main">
-        <div class="column narrow"><h3>THE POLICE ARE MURDERERS</h3> </div>
-        <div class="column wide"><img src="./images/doeur.png" alt=" "></div>
-        <div class="column medium"><section class="morgue-definition">
-    <h2>Morgue</h2>
-    <p>
-        <em>Noun</em> <small>(ˈmȯrg)</small>
-    </p>
-    <ol>
-        <li>
-            A place where the bodies of dead persons are kept temporarily pending identification or release for burial or autopsy.
-        </li>
-        <li>
-            A collection of reference works and files used as a resource, particularly in a newspaper or news service office.
-        </li>
-    </ol>
-    <footer class="attribution">
-        <small>
-            Source: <a href="https://www.merriam-webster.com" target="_blank" rel="noopener noreferrer">Merriam-Webster</a>
-        </small>
-    </footer>
-</section>
-</div>
+        <div class="column narrow">
+            <h3>KCMO & Regional</h3>
+            <ul>
+                <li><a href="./history.html" data-target="iframe">History</a></li>
+                <li><a href="./data.html" data-target="iframe">Data Sources</a></li>
+                <li><a href="./activism.html" data-target="iframe">Activism</a></li>
+                <li><a href="./cops.html" data-target="iframe">Cop Call-outs</a></li>
+            </ul>
+            
+            <h3>Support our Work</h3>
+            <ul>
+            <li><a href="./support.html" data-target="iframe">Click here</a></li>
+            </ul>
+            <p>for ways you can help keep the site going and/or make it better.</p>
+        </div>
+        <div class="column wide" id="second-column">
+            <img src="./images/doeur.png" alt="Image">
+        </div>
+        <div class="column medium" id="third-column">
+            <section class="morgue-definition">
+                <h2>Morgue</h2>
+                <p><em>Noun</em> <small>(ˈmȯrg)</small></p>
+                <ol>
+                    <li>A place where the bodies of dead persons are kept temporarily pending identification or release for burial or autopsy.</li>
+                    <li>A collection of reference works and files used as a resource, particularly in a newspaper or news service office.</li>
+                </ol>
+            </section>
+        </div>
+        <iframe class="dynamic-iframe" id="dynamic-iframe" src=""></iframe>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
         <small>All data is subject to the policy of the data supplier. None of my original content or design is copyrighted, use it if you like.</small>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const main = document.querySelector('.main');
+        const iframe = document.getElementById('dynamic-iframe');
+        const iframeLinks = document.querySelectorAll('[data-target="iframe"]');
+        const homeLinks = document.querySelectorAll('a[href="home"]');
+
+        function handleIframeLoad(e) {
+            e.preventDefault();
+            const targetUrl = this.getAttribute('href');
+            if (targetUrl) {
+                iframe.src = targetUrl;
+                main.classList.add('with-iframe');
+            }
+        }
+
+        function handleHomeClick(e) {
+            e.preventDefault();
+            iframe.src = '';
+            main.classList.remove('with-iframe');
+        }
+
+        iframeLinks.forEach(link => link.addEventListener('click', handleIframeLoad));
+        homeLinks.forEach(link => link.addEventListener('click', handleHomeClick));
+    </script>
 </body>
 </html>
