@@ -28,6 +28,7 @@
             text-align: center;
             align-items: center;
             margin: 0 auto;
+            padding: 10px; /* Add padding to ensure spacing between border and content */
             border: 1px dotted #00FCCF33;
             border-radius: 12px;
         }
@@ -333,8 +334,8 @@
             try {
                 const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
                 const iframeHeight = iframeDoc.body.scrollHeight || iframeDoc.documentElement.scrollHeight;
-                iframe.style.height = iframeHeight + 'px';
-                if (iframeHeight < 300) {
+                iframe.style.height = `${iframeHeight}px`;
+                if (iframeHeight < 500) {
                     iframe.style.height = '500px';
                 }
             } catch (error) {
