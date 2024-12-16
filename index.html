@@ -236,6 +236,22 @@ img {
         padding: 10px;
     }
 }
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Stack logo and nav vertically */
+        text-align: center;
+    }
+
+    .header img {
+        margin-bottom: 10px; /* Add space below the logo */
+    }
+
+    .nav {
+        justify-content: center;
+        flex-direction: row; /* Keep nav links in a row */
+        gap: 10px;
+    }
+}
 
     </style>
 </head>
@@ -289,29 +305,40 @@ img {
     </footer>
 
     <!-- JavaScript -->
-    <script>
-        const main = document.querySelector('.main');
-        const iframe = document.getElementById('dynamic-iframe');
-        const iframeLinks = document.querySelectorAll('[data-target="iframe"]');
-        const homeLinks = document.querySelectorAll('a[href="home"]');
+   <script>
+    const main = document.querySelector('.main');
+    const iframe = document.getElementById('dynamic-iframe');
+    const iframeLinks = document.querySelectorAll('[data-target="iframe"]');
+    const homeLinks = document.querySelectorAll('a[href="home"]');
 
-        function handleIframeLoad(e) {
-            e.preventDefault();
-            const targetUrl = this.getAttribute('href');
-            if (targetUrl) {
-                iframe.src = targetUrl;
-                main.classList.add('with-iframe');
-            }
+    // Function to handle iframe link clicks
+    function handleIframeLoad(e) {
+        e.preventDefault();
+        const targetUrl = this.getAttribute('href');
+        if (targetUrl) {
+            iframe.src = targetUrl;
+            main.classList.add('with-iframe');
         }
+    }
 
-        function handleHomeClick(e) {
-            e.preventDefault();
-            iframe.src = '';
-            main.classList.remove('with-iframe');
-        }
+    // Function to handle "Home" clicks
+    function handleHomeClick(e) {
+        e.preventDefault();
+        iframe.src = ''; // Clear iframe content
+        main.classList.remove('with-iframe');
+    }
 
-        iframeLinks.forEach(link => link.addEventListener('click', handleIframeLoad));
-        homeLinks.forEach(link => link.addEventListener('click', handleHomeClick));
-    </script>
+    // Dynamically adjust iframe height
+    iframe.addEventListener('load', () => {
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const iframeHeight = iframeDoc.body.scrollHeight || iframeDoc.documentElement.scrollHeight;
+        iframe.style.height = iframeHeight + 'px';
+    });
+
+    // Attach event listeners to links
+    iframeLinks.forEach(link => link.addEventListener('click', handleIframeLoad));
+    homeLinks.forEach(link => link.addEventListener('click', handleHomeClick));
+</script>
+
 </body>
 </html>
