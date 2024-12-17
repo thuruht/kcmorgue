@@ -16,19 +16,18 @@
 
         /* Body Styling */
         body {
-        padding: 2px;
+       
             font-family: 'Lora', serif;
             font-size: 0.9rem;
-            background: linear-gradient(to bottom, #20002F, #030303, #2F0020);
-            background-attachment: fixed;
-            background-size: cover;
+            background: linear-gradient(to bottom, #01010F, #000000, #0F0101);
             color: #e4e4e4;
             line-height: 1.8;
-            width: 100vw;
+            width: 98vw;
             height: 100%;
             text-align: center;
             align-items: center;
             margin: 0 auto;
+            margin-top:10px;
             padding: 10px; /* Add padding to ensure spacing between border and content */
             border: 1px dotted #00FCCF;
             border-radius: 12px;
@@ -86,7 +85,7 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            background: #66666633;
+            background: #66666611;
             padding: 20px;
             border-radius: 0;
         }
@@ -108,7 +107,7 @@
             color: #e4e4e4;
             padding: 5px 15px;
             border-radius: 8px;
-            background: #ffffff0d;
+            background: #fcccff0d;
             transition: background-color 0.3s, color 0.3s, transform 0.3s;
         }
 
@@ -128,8 +127,9 @@
         }
 
         .column {
-            background: #66666633;
+            background: #66666611;
             padding: 20px;
+              border: 1px dotted #00FCCF44;
             border-radius: 12px;
             flex: 1;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -164,7 +164,7 @@
         /* Footer */
         .footer {
             width: 100%;
-            background: #66666633;
+            background: #66666611;
             padding: 20px;
             text-align: center;
             border-radius: 0;
@@ -179,7 +179,7 @@
             border: none;
             width: 100%;
             height: auto;
-            background: #66666633;
+            background: #66666611;
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -269,32 +269,33 @@
     <!-- Main Content -->
     <main class="main">
         <div class="column narrow">
-            <h3>KCMO & Regional</h3>
+            <h3>KCMO & Regional:</h3>
             <ul>
-                <li><a href="./history.html" data-target="iframe">History</a></li>
+                <li><a href="./history.html" data-target="iframe">Policing History</a></li>
                 <li><a href="./data.html" data-target="iframe">Data Sources</a></li>
                 <li><a href="./activism.html" data-target="iframe">Activism</a></li>
                 <li><a href="./cops.html" data-target="iframe">Cop Call-outs</a></li>
-            </ul>
-            <h3>Support our Work</h3>
+            </ul><br><hr style="border: 0px transparent; border-top: 1px dotted #00FCCF;"><br>
+           <h4>Submissions Welcome:</h4>
+            If you have a comment or suggestion, or would like to contribute an essay, link, or any other content, or call out an individual officer, please email <a href="mailto:coroner@kcmorgue.org">coroner@kcmorgue.org</a>
+             <br><hr style="border: 0px transparent; border-top: 1px dotted #00FCCF;"><br>
             <ul>
                 <li><a href="./support.html" data-target="iframe">Click here</a></li>
             </ul>
-            <p>for ways you can help keep the site going and/or make it better.</p><h3>Submissions Welcome</h3>
-            If you have a comment or suggestion, or would like to contribute an essay, link, or any other content, or call out an individual officer, please email <a href="mailto:coroner@kcmorgue.org">coroner@kcmorgue.org</a>
+            <p>for other ways to help out.</p>
         </div>
         <div class="column wide"> 
-            <img src="./images/doeur.png" alt="Image">
+            
           <h4 style="text-align:center;">According to factual data from <a href="https://policescorecard.org/" target="_blank">policescorecard.org</a>, KCMO PD:</h4>  <p style ="text-align: left;"><small>
-Kills more people than 95% of US police Depts.
-Kills more unarmed people than 91% of departments.
-Has an about 77% white force that both arrests and kills more people of color than they do any other group.
-Solves more homicides of white people than any other group.
-Uses more less-lethal force than 71% of departments.
-Has more funding than 96% of departments.
-And spends over three million dollars a year settling lawsuits.
+<strong>Kills</strong> more people than <strong>95%</strong> of US police departments.
+Kills more <strong>unarmed</strong> people than <strong>91%</strong> of departments.
+Has an about 77% white force that both <em>arrests</em> and <em>kills</em> <strong>more people of color</strong> than they do any other group.<br>
+KCPD also: solves substantially more homicides of white people than they solve homicides of any other group,
+uses more "less-lethal" force than 71% of police departments,
+has more funding than 96% of departments,
+and spends over three million dollars a year settling lawsuits.
 </small>
-</p>
+</p><img src="./images/doeur.png" alt="stylized morgue freezer door">
         </div>
         <div class="column medium">
             <section class="morgue-definition">
@@ -303,8 +304,8 @@ And spends over three million dollars a year settling lawsuits.
                 <ol>
                     <li>A place where the bodies of dead persons are kept temporarily pending identification or release for burial or autopsy.</li>
                     <li>A collection of reference works and files used as a resource, particularly in a newspaper or news service office.</li>
-                </ol>
-               
+                </ol></section><br><hr style="border: 0px transparent; border-top: 1px dotted #00FCCF;"><br><section><h3>A note:</h3>
+               <p>This site is the personal project of an individual Kansas Citian, and is not affiliated with any organization or entity aside from the creator.</p>
             </section>
         </div>
         <iframe class="dynamic-iframe" id="dynamic-iframe" src=""></iframe>
