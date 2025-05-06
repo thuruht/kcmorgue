@@ -422,6 +422,22 @@ and spends over three million dollars a year settling lawsuits.
 
         iframeLinks.forEach(link => link.addEventListener('click', handleIframeLoad));
         homeLinks.forEach(link => link.addEventListener('click', handleHomeClick));
+
+        function openModal() {
+    document.getElementById('urgentModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('urgentModal').style.display = 'none';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('urgentModal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+}
     </script>
 </body>
 </html>
